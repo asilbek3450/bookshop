@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+    <title>Book Detail</title>
+    <link href="{% static 'book/book_detail.css' %}" rel="stylesheet"/>
+</head>
+
+<body>
+    <h1 style="text-align: center">Kitob haqida batafsil</h1>
+
+    <div class="wrapper">
+    <div class="product-img">
+      <img src="{{kitob.rasm.url}}" width="327">
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1>{{kitob.nomi}}</h1>
+        <h2><b>Muallif:</b> {{kitob.muallif}}</h2>
+        <p>{{kitob.information}}</p>
+      </div>
+
+      <div class="product-price-btn">
+        <p><span>{{kitob.narxi}}</span>$</p>
+      </div>
+      <div class="product-price-btn">
+        <button type="button">Sotib olish</button>
+      </div>
+
+
+    </div>
+        <div class="product-price-btn-others">
+            <button type="button"><a class="linklar" href="{% url 'edit_book' pk=kitob.id %}">O'zgartirish</a></button>
+            <button type="button" style="background: red; transition: background 0.3s ease;" onmouseover="this.style.background='#ff9898';" onmouseout="this.style.background='red';">
+                <a class="linklar" href="{% url 'kitob_ochirish' pk=kitob.id %}">O'chirish</a>
+            </button>
+            <button style="background: #8d8d8d" type="button"><a class="linklar" href="{% url 'book_list' %}">🔙 Orqaga qaytish</a></button>
+        </div>
+
+
+  </div>
+
+</body>
+
+</html>

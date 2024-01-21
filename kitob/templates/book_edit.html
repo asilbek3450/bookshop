@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>O'zgartirish</title>
+</head>
+<body>
+    <p>{{ kerakli_kitob.nomi }}ni o'zgartirish</p>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br><br><button type="submit">✅ Saqlash</button>
+    </form>
+            <br><button style="background: #8d8d8d" type="button"><a class="linklar" href="{% url 'book_list' %}">🔙 Orqaga qaytish</a></button>
+
+</body>
+</html>

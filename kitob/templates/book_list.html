@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link href="{% static 'book/book_card.css' %}" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div id="large-th">
+  <div class="container">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h1>Barcha kitoblar</h1>
+      <button style="background-color: #4CAF50; border: none; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;">
+          <a class="linklar" href="{% url 'create_book' %}" style="color: white; text-decoration: none;">Yangi qo'shish</a>
+      </button>
+  </div>
+
+
+
+    <div id="list-th">
+    {% for kitob in kitoblar %}
+`
+      <div class="book read">
+        <div class="cover">
+          <img src="{{kitob.rasm.url}}" style="height: 100%;">
+        </div>
+        <div class="description">
+          <p class="title">{{ kitob.nomi | truncatechars:25 }}</p>
+        </div>
+      <a href="{% url 'book_detail' pk=kitob.id %}"><button class="batafsil-button">Batafsil</button></a>
+      </div>
+
+    {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>
+

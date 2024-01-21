@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    <link href="{% static 'book/book_card.css' %}" rel="stylesheet"/>
+</head>
+<body>
+
+    <div id="large-th">
+      <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+          <h1>Yangi kitob yaratish sahifasi</h1>
+      </div>
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">✅ Saqlash</button>
+          </form>
+      </div>
+    </div>
+
+</body>
+</html>

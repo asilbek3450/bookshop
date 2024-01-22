@@ -23,12 +23,12 @@
     <div id="list-th">
     {% for kitob in kitoblar %}
 `
-      <div class="book read">
+      <div class="article">
         <div class="cover">
           <img src="{{kitob.rasm.url}}" style="height: 100%;">
         </div>
         <div class="description">
-          <p class="title">{{ kitob.nomi | truncatechars:25 }}</p>
+          <p class="title">{{ kitob.nomi }}</p>
         </div>
       <a href="{% url 'book_detail' pk=kitob.id %}"><button class="batafsil-button">Batafsil</button></a>
       </div>

@@ -1,13 +1,24 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
-from kitob.forms import BookCreateForm, BookEditForm
+from kitob.forms import BookCreateForm, BookEditForm, ContactUsForm
 from kitob.models import Book
 
 
 # Create your views here.
 def home_page(request):
-    return HttpResponse("Salom, dunyo")
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = ContactUsForm()
+    context = {
+        'form': form
+    }
+
+    return render(request, template_name='index.html', context=context)
 
 
 def about(request):
